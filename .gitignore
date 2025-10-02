@@ -1,0 +1,47 @@
+# .gitignore for the BDH-Official project
+
+# --- Python ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+# Standard Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# --- IDE / Editor specific files ---
+# Visual Studio Code
+.vscode/
+# PyCharm
+.idea/
+
+# --- OS specific files ---
+# MacOS
+.DS_Store
+# Windows
+Thumbs.db
+
+# --- Data and Large Files ---
+# We do not want to commit the dataset to Git
+input.txt
+
+# --- Training Artifacts ---
+# Do not commit trained model checkpoints. They are large and binary.
+*.pth
+*.pt
+
+# --- PyTorch Compile Cache ---
+# torch.compile creates a cache directory
+__pycache__/*torch_compile*
+
+# --- Log Files ---
+*.log
+logs/
+
+# --- Jupyter Notebook ---
+# Notebook checkpoints
+.ipynb_checkpoints

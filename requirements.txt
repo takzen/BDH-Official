@@ -1,0 +1,13 @@
+# requirements.txt for BDH-Official project
+
+# Add the PyTorch CUDA repository as an additional source.
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# We will use the latest compatible versions
+torch
+torchvision
+torchaudio
+
+# Other dependencies
+requests
+numpy
