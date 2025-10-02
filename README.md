@@ -4,7 +4,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-This repository contains a full, open-source implementation of the **"Dragon Hatchling" (BDH)** AI architecture, based on the reference code from the conceptual paper. This project provides a professional environment to train, analyze, and explore the fascinating phenomenon of **emergence** in neural networks.
+This repository contains an open-source project built upon the **official reference implementation** of the **"Dragon Hatchling" (BDH)** AI architecture, released by Pathway Technology, Inc. on their GitHub. This framework provides a professional environment to train, analyze, and explore the fascinating phenomenon of **emergence** in neural networks, as described in their conceptual paper.
 
 ## Core Idea: Emergence
 
@@ -14,7 +14,7 @@ This implementation allows researchers and enthusiasts to train a 25M parameter 
 
 ## Features
 
--   **Faithful Implementation:** A clean, commented, and faithful implementation of the `BDHConfig`, `Attention`, and `BDH` classes.
+-   **Faithful Implementation:** A clean, commented, and faithful implementation of the `BDHConfig`, `Attention`, and `BDH` classes based on the official source code.
 -   **Advanced Training Script:** The `train.py` script uses modern, high-performance techniques including `torch.compile` (optional), Automatic Mixed Precision (`bfloat16`/`float16`), and efficient data loading.
 -   **Reproducibility:** The project is structured for easy and reproducible environment setup using `uv`.
 -   **Open-Source:** Licensed under the MIT license, encouraging community contribution and experimentation.
