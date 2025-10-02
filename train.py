@@ -3,6 +3,7 @@
 # Uses advanced features like torch.compile and Automatic Mixed Precision.
 # Includes checkpointing and a Windows-compatible compile backend.
 
+
 import os
 from contextlib import nullcontext
 import torch
@@ -20,6 +21,10 @@ LEARNING_RATE = 1e-3
 WEIGHT_DECAY = 0.1
 LOG_FREQ = 100
 CHECKPOINT_FREQ = 1000 # Save a checkpoint every 1000 steps
+
+# Compilation settings
+USE_COMPILE = True  # Set to False to disable compilation
+COMPILE_MODE = "default"  # Options: "default", "reduce-overhead", "max-autotune"
 
 # File paths
 MODEL_CHECKPOINT_PATH = "bdh_shakespeare_checkpoint.pth"
@@ -71,10 +76,22 @@ if __name__ == "__main__":
     print(f"Model initialized with {sum(p.numel() for p in model.parameters())/1e6:.2f}M parameters.")
 
     # --- Compile the model for a significant speed-up ---
-    print("Compiling the model with a Windows-compatible backend...")
-    # We use 'aot_eager' which does not require Triton, ensuring Windows compatibility.
-    model = torch.compile(model, fullgraph=True, backend="eager")
-    print("Model compiled successfully.")
+    if USE_COMPILE:
+        print(f"Compiling the model...")
+        try:
+            # Suppress dynamo errors to gracefully fall back if compilation fails
+            import torch._dynamo
+            torch._dynamo.config.suppress_errors = True
+            
+            # On Windows, Triton is not available, so we use a compatible backend
+            # 'aot_eager' works on all platforms without requiring Triton
+            model = torch.compile(model, backend="aot_eager")
+            print("Model compiled successfully with 'aot_eager' backend.")
+        except Exception as e:
+            print(f"Warning: torch.compile failed with error: {e}")
+            print("Continuing without compilation...")
+    else:
+        print("Compilation disabled, running in eager mode.")
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
 
@@ -99,7 +116,7 @@ if __name__ == "__main__":
             loss_acc = 0.0
             loss_steps = 0
             
-        # --- NEW: Regular Checkpointing ---
+        # --- Regular Checkpointing ---
         if step > 0 and step % CHECKPOINT_FREQ == 0:
             print(f"\n--- Saving checkpoint at step {step} ---")
             torch.save(model.state_dict(), MODEL_CHECKPOINT_PATH)
