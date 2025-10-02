@@ -23,17 +23,18 @@ This implementation allows researchers and enthusiasts to train a 25M parameter 
 
 This project uses `uv` for fast and reliable environment management. A GPU is highly recommended.
 
-**1. Clone the repository:**
+### 1. Clone the repository
 ```bash
 git clone https://github.com/takzen/BDH-Official.git
 cd BDH-Official
 ```
 
-**2. Install `uv` (if you don't have it):**
+### 2. Install `uv` (if you don't have it)
 ```bash
-pip install uv```
+pip install uv
+```
 
-**3. Create environment and install dependencies:**
+### 3. Create environment and install dependencies
 ```bash
 # Create the virtual environment
 uv venv
@@ -48,7 +49,7 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
 
-**4. Run the training:**
+### 4. Run the training
 The script will download the Tiny Shakespeare dataset and start training a 25M parameter model.
 ```bash
 python train.py
