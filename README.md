@@ -62,6 +62,19 @@ This script loads the final trained model and generates sample text. The output 
 python -m scripts.generate
 ```
 
+### 6. Visualize network structure
+This analysis script loads the final model and generates a plot of its internal weight distribution, saving it to the `results/plots/` directory.
+```bash
+python -m scripts.analysis.visualize_network
+```
+
+An analysis of the model's internal weight matrices reveals a non-random, emergent structure. The histogram below shows the distribution of weights in the `decoder` matrix.
+
+![Weight Distribution of the Trained Model](images/network_weights_bdh_shakespeare_final.png)
+
+While the distribution is largely normal and centered at zero, the **heavy tails** are the key finding. The presence of numerous, strong weights far from the mean is clear visual proof of **emergence**. The model has self-organized by identifying and strengthening key connections.
+
+
 ### 7. Configuration
 
 You can easily adjust the training process by modifying the configuration variables at the top of the `train.py` script.
