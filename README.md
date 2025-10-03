@@ -300,19 +300,6 @@ BDH-Official/
 └── images/                    # README images
 ```
 
-## Citation
-
-If you use this implementation in your research, please cite:
-
-```bibtex
-@software{bdh_official,
-  author = {Your Name},
-  title = {BDH-Official: Open-Source Implementation of Dragon Hatchling},
-  year = {2025},
-  url = {https://github.com/takzen/BDH-Official}
-}
-```
-
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
