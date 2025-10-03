@@ -74,8 +74,38 @@ An analysis of the model's internal weight matrices reveals a non-random, emerge
 
 While the distribution is largely normal and centered at zero, the **heavy tails** are the key finding. The presence of numerous, strong weights far from the mean is clear visual proof of **emergence**. The model has self-organized by identifying and strengthening key connections.
 
+---
 
-### 7. Configuration
+### 7. Further Research: Sparsity Analysis ("Neuron of Silence")
+
+Beyond the initial results, we conducted a targeted experiment to test a core hypothesis of efficient neural networks: **Do they dynamically allocate computational resources in response to input complexity?**
+
+The experiment, dubbed the "Neuron of Silence", measures the fraction of active neurons (sparsity) as the model processes a text sequence containing both repetitive, predictable patterns and a sudden, surprising phrase.
+
+### Hypothesis
+
+-   **Null Hypothesis (H₀):** The model processes all tokens with a constant level of neuron activation. Sparsity will remain stable regardless of the input's predictability.
+-   **Alternative Hypothesis (H₁):** The model is "intelligently lazy." It will use fewer active neurons for predictable text and significantly increase activation when encountering a surprising event.
+
+### Results
+
+The plot below visualizes the fraction of active neurons for each input character.
+
+![Sparsity Analysis Plot](results/plots/sparsity_analysis_final.png)
+
+### Conclusion
+
+**The null hypothesis is rejected.**
+
+The results provide clear evidence supporting the alternative hypothesis. We can observe:
+1.  **Low Baseline Activity:** During the repetitive phases ("The same old story..."), the model operates at a low and stable level of activation (15-25% of neurons active).
+2.  **Dramatic Spike on Surprise:** When the model encounters the "surprise" phrase, neuron activation **dramatically spikes**, nearly doubling to almost 40%. This indicates a significant increase in computational effort to process the novel information.
+3.  **Rapid Return to Baseline:** As soon as the surprising event ends, the model's activation level immediately drops back to its energy-saving baseline.
+
+This experiment demonstrates that the BDH architecture has learned to be computationally efficient, dynamically allocating resources in a manner analogous to attention mechanisms in biological systems.
+
+
+### 8. Configuration
 
 You can easily adjust the training process by modifying the configuration variables at the top of the `train.py` script.
 
