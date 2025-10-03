@@ -276,20 +276,20 @@ Key options include:
 ## Project Structure
 
 ```
-BDH-Official/
+BDH-Official/ 
 ├── bdh.py                     # BDH raw
 ├── bdh2.py                    # BDH2 model 
 ├── bdh3.py                    # BDH3 model 
-├── train.py                    # Training script
+├── train.py                   # Training script
 ├── requirements.txt
 ├── README.md
 ├── scripts/
 │   ├── generate.py            # Text generation
 │   └── analysis/
-│       ├── visualize_attention.py      # Attention pattern analysis
+│       ├── visualize_attention.py          # Attention pattern analysis
 │       ├── visualize_embeddings_simple.py  # Embedding visualization
-│       ├── visualize_network.py        # Weight distribution
-│       └── sparsity_analysis.py        # Neuron activation analysis
+│       ├── visualize_network.py            # Weight distribution
+│       └── sparsity_analysis.py            # Neuron activation analysis
 ├── results/
 │   ├── generated_texts/       # Generated samples
 │   └── plots/
@@ -297,7 +297,7 @@ BDH-Official/
 |       ├── sparsity_analysis_final.png
 │       ├── attention_analysis/    # Attention visualizations
 │       └── embedding_analysis/    # Embedding visualizations
-└── images/                    # README images
+└── images/                        # README images
 ```
 
 ## License
