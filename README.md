@@ -56,7 +56,13 @@ python train.py
 ```
 After training, the script will generate a sample text and save the final model to `bdh_shakespeare_final.pth`.
 
-## Configuration
+### 5. Generate text
+This script loads the final trained model and generates sample text. The output is printed to the console and also saved to a unique file in the `results/generated_texts/` directory.
+```bash
+python -m scripts.generate
+```
+
+### 6. Configuration
 
 You can easily adjust the training process by modifying the configuration variables at the top of the `train.py` script.
 
