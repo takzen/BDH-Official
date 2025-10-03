@@ -62,7 +62,7 @@ This script loads the final trained model and generates sample text. The output 
 python -m scripts.generate
 ```
 
-### 6. Configuration
+### 7. Configuration
 
 You can easily adjust the training process by modifying the configuration variables at the top of the `train.py` script.
 
